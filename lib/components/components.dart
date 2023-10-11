@@ -9,7 +9,7 @@ class TextFieldComponent extends StatelessWidget {
       required this.icon,
       required this.validation})
       : super(key: key);
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final String hintText;
   final String labelText;
   final Icon icon;
@@ -19,6 +19,7 @@ class TextFieldComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       validator: validation,
+      controller: controller,
       decoration: InputDecoration(
           fillColor: Colors.grey[200],
           filled: true,

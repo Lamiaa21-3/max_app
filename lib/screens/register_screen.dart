@@ -6,7 +6,7 @@ import '../components/components.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({Key? key}) : super(key: key);
-  var nameController = TextEditingController()..text;
+ final TextEditingController nameController = TextEditingController();
   var emailCotroller = TextEditingController()..text;
   var passwordController = TextEditingController()..text;
   var conformPassworController = TextEditingController()..text;
@@ -65,7 +65,12 @@ class RegisterScreen extends StatelessWidget {
                     controller: emailCotroller,
                     hintText: 'enter your email',
                     labelText: 'Email',
-                    icon: Icon(Icons.email), validation: (String ) {  },
+                    icon: Icon(Icons.email), validation: (value ) {
+                    if(value!.isEmpty)
+                    {
+                      return('please enter your email');
+                    }
+                  },
                   ),
                   SizedBox(
                     height: 10,
@@ -74,7 +79,12 @@ class RegisterScreen extends StatelessWidget {
                     controller: passwordController,
                     hintText: 'enter your password',
                     labelText: 'Password',
-                    icon: Icon(Icons.visibility), validation: (String ) {  },
+                    icon: Icon(Icons.visibility), validation: (value ) {
+                    if(value!.isEmpty)
+                    {
+                      return('please enter your password');
+                    }
+                  },
                   ),
                   SizedBox(
                     height: 10,
@@ -83,16 +93,22 @@ class RegisterScreen extends StatelessWidget {
                     controller: conformPassworController,
                     hintText: 'enter your conformPassword',
                     labelText: 'conformPassword',
-                    icon: Icon(Icons.visibility), validation: (String ) {  },
+                    icon: Icon(Icons.visibility), validation: (value ) {
+                    if(value!.isEmpty)
+                    {
+                      return('please enter your conformPassword');
+                    }
+                  },
                   ),
                   MaterialButton(
                       color: Colors.teal,
                       onPressed: () {
                         if(formKey.currentState!.validate())
                           {
+                            print('nameController ${nameController.text}');
                             Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const LogIn())
+                                MaterialPageRoute(builder: (context) =>  LogIn())
                             );
                           }
                       },
