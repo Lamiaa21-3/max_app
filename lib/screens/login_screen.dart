@@ -24,79 +24,79 @@ class LogIn extends StatelessWidget {
 
         ),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Form(
-            key: formLoginKey,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'Welcome',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-                ),
-                Text(
-                  'Enter to your account',
-                  style: TextStyle(fontSize: 20, color: Colors.grey),
-                ),
-                TextFieldComponent(
-                    controller: emailLoginController,
-                    hintText: 'enter your email',
-                    labelText: 'Email',
-                    icon: Icon(Icons.email),
-                    validation: (value) {
-                      if(value!.isEmpty)
-                        {
-                          return 'Please enter vaild email';
-                        }
-                    }),
-                SizedBox(height: 10,),
-                TextFieldComponent(
-                    controller: passwordLoginController,
-                    hintText: 'enter your password',
-                    labelText: 'Password',
-                    icon: Icon(Icons.visibility),
-                    validation: (value) {
-                      if(value!.isEmpty)
-                        {
-                          return 'Please enter vaild password';
-                        }
-                    }),
-            MaterialButton(
-                color: Colors.teal,
-                onPressed: () {
-                  if(formLoginKey.currentState!.validate())
-                  {
-                    //print('nameController ${nameController.text}');
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) =>  HomePageScreen())
-                    );
-                  }
-                },
-                child: Text(
-                  'LogIn',
-                  style: TextStyle(color: Colors.black),
-                )),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Do not have any account?'),
-                TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'SignUp',
-                      style: TextStyle(color: Colors.black),
-                    )),
-              ],
-            ),
-            ]
-        ),
-          ),
-    ),
-      )
+    //   body: SingleChildScrollView(
+    //     child: Center(
+    //       child: Form(
+    //         key: formLoginKey,
+    //         child: Column(
+    //           children: [
+    //             SizedBox(
+    //               height: 20,
+    //             ),
+    //             Text(
+    //               'Welcome',
+    //               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+    //             ),
+    //             Text(
+    //               'Enter to your account',
+    //               style: TextStyle(fontSize: 20, color: Colors.grey),
+    //             ),
+    //             TextFieldComponent(
+    //                 controller: emailLoginController,
+    //                 hintText: 'enter your email',
+    //                 labelText: 'Email',
+    //                 icon: Icon(Icons.email),
+    //                 validation: (value) {
+    //                   if(value!.isEmpty)
+    //                     {
+    //                       return 'Please enter vaild email';
+    //                     }
+    //                 }),
+    //             SizedBox(height: 10,),
+    //             TextFieldComponent(
+    //                 controller: passwordLoginController,
+    //                 hintText: 'enter your password',
+    //                 labelText: 'Password',
+    //                 icon: Icon(Icons.visibility),
+    //                 validation: (value) {
+    //                   if(value!.isEmpty)
+    //                     {
+    //                       return 'Please enter vaild password';
+    //                     }
+    //                 }),
+    //         MaterialButton(
+    //             color: Colors.teal,
+    //             onPressed: () {
+    //               if(formLoginKey.currentState!.validate())
+    //               {
+    //                 //print('nameController ${nameController.text}');
+    //                 Navigator.push(
+    //                     context,
+    //                     MaterialPageRoute(builder: (context) =>  HomePageScreen())
+    //                 );
+    //               }
+    //             },
+    //             child: Text(
+    //               'LogIn',
+    //               style: TextStyle(color: Colors.black),
+    //             )),
+    //         Row(
+    //           mainAxisAlignment: MainAxisAlignment.center,
+    //           children: [
+    //             Text('Do not have any account?'),
+    //             TextButton(
+    //                 onPressed: () {},
+    //                 child: Text(
+    //                   'SignUp',
+    //                   style: TextStyle(color: Colors.black),
+    //                 )),
+    //           ],
+    //         ),
+    //         ]
+    //     ),
+    //       ),
+    // ),
+    //   )
     );
   }
 }

@@ -3,14 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:new_app/screens/login_screen.dart';
 
 import '../components/components.dart';
+import 'package:http/http.dart' as http;
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
   RegisterScreen({Key? key}) : super(key: key);
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
  final TextEditingController nameController = TextEditingController();
+
   var emailCotroller = TextEditingController()..text;
+
   var passwordController = TextEditingController()..text;
+
   var conformPassworController = TextEditingController()..text;
+
   var formKey = GlobalKey<FormState>() ;
+
+  bool hidePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -51,21 +64,28 @@ class RegisterScreen extends StatelessWidget {
                     controller: nameController,
                     hintText: 'enter your name',
                     labelText: 'Full Name',
-                    icon: Icon(Icons.person), validation: (value ) {
+
+
+                    validation: (value ) {
                       if(value!.isEmpty)
                         {
                          return('please enter your name');
                         }
-                  },
+                  }, obscureText: false, icon: IconButton(onPressed: (){},icon: Icon(Icons.person),),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   TextFieldComponent(
+                    obscureText: false,
                     controller: emailCotroller,
                     hintText: 'enter your email',
                     labelText: 'Email',
-                    icon: Icon(Icons.email), validation: (value ) {
+                    icon: IconButton(
+                      onPressed: (){},
+                      icon: Icon(Icons.email),
+                    ),
+                    validation: (value ) {
                     if(value!.isEmpty)
                     {
                       return('please enter your email');
@@ -76,15 +96,27 @@ class RegisterScreen extends StatelessWidget {
                     height: 10,
                   ),
                   TextFieldComponent(
+                    obscureText : hidePassword,
                     controller: passwordController,
                     hintText: 'enter your password',
                     labelText: 'Password',
-                    icon: Icon(Icons.visibility), validation: (value ) {
+                    icon: IconButton(
+                      onPressed: (){
+                        setState(() {
+                          hidePassword = !hidePassword;
+                        });
+                      },
+                      icon: Icon(hidePassword? Icons.visibility_off:Icons.visibility),
+                    ),
+
+                    validation: (value ) {
+
                     if(value!.isEmpty)
                     {
                       return('please enter your password');
                     }
                   },
+
                   ),
                   SizedBox(
                     height: 10,
@@ -93,16 +125,27 @@ class RegisterScreen extends StatelessWidget {
                     controller: conformPassworController,
                     hintText: 'enter your conformPassword',
                     labelText: 'conformPassword',
-                    icon: Icon(Icons.visibility), validation: (value ) {
+
+                     validation: (value ) {
                     if(value!.isEmpty)
                     {
                       return('please enter your conformPassword');
                     }
-                  },
+                  }, obscureText: false, icon: IconButton(
+                    onPressed: ()
+                    {
+
+                    },
+                    icon: Icon(Icons.visibility),
+                  ),
                   ),
                   MaterialButton(
                       color: Colors.teal,
                       onPressed: () {
+
+
+
+
                         if(formKey.currentState!.validate())
                           {
                             print('nameController ${nameController.text}');

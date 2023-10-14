@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 
 class TextFieldComponent extends StatelessWidget {
-  TextFieldComponent(
-      {Key? key,
-      required this.controller,
-      required this.hintText,
-      required this.labelText,
-      required this.icon,
-      required this.validation})
+  TextFieldComponent({
+    Key? key,
+    required this.controller,
+   required this.hintText,
+    required this.labelText,
+   required this.icon,
+    required this.validation,
+   required this.obscureText,
+  })
       : super(key: key);
   final TextEditingController? controller;
   final String hintText;
+  final bool obscureText;
   final String labelText;
-  final Icon icon;
+  final IconButton icon;
   final  String? Function(String?)? validation;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText:obscureText ,
       validator: validation,
       controller: controller,
       decoration: InputDecoration(
