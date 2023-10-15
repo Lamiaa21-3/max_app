@@ -32,9 +32,9 @@ class LogInCubit extends Cubit<LogInStates> {
      final response  = json.decode(value!.body);
 
         autherModel=AutherModel.fromJson(response);
-     print('uuuuuuuuuuuuuuu${autherModel!.userName}');
+     //print('uuuuuuuuuuuuuuu${autherModel!.userName}');
      user_name=autherModel!.userName!;
-
+        token = autherModel!.accessToken!;
         emit(LogInPasswordSucessState());
       }
       else if (value.statusCode == 400)

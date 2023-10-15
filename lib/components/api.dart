@@ -9,6 +9,13 @@ class Api {
         .post(Uri.parse(url), body: body);
 
   }
+  Future<dynamic> get({required String url,required Map<String ,String> header}) async
+  {
+
+    return await  http.get(Uri.parse(url),headers:header);
+
+
+  }
 }
 //http://85.93.89.54:8020/api/Account/Register
 // 'Name': 'lamiaa',

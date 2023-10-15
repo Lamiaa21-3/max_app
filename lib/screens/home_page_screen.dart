@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:new_app/cubit/homePage_cubit/homePage_cubit.dart';
 import 'package:new_app/cubit/login_cubit/login_cubit.dart';
 import 'package:new_app/cubit/login_cubit/login_state.dart';
 
@@ -11,10 +12,12 @@ class HomePageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        HomePageCubit.get(context).getHome();
+        print('object');
     print(LogInCubit.get(context).autherModel?.userName);
-    return BlocConsumer<LogInCubit, LogInStates>(
-      listener: (context, state) {},
-      builder: (context, state) {
+    return BlocConsumer<LogInCubit,LogInStates>(
+      listener: (context,state) {},
+      builder: (context,state) {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.white,
