@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_app/screens/register_screen.dart';
+import 'components/bloc_observer.dart';
 
 void main() {
+  Bloc.observer = SiBlocObsever();
   runApp(const MyApp());
 }
 

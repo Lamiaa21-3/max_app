@@ -16,12 +16,21 @@ class LogInCubit extends Cubit<LogInStates> {
       {required String email, required String password}) async {
     emit(LogInInitialState());
     await Api()
-        .post(url: 'http://85.93.89.54:8020/api/Account/Register', body: {
-      'Email': email,
-      'Password': password,
+        .post(url: 'http://85.93.89.54:8020/token', body: {
+      'userName': email,
+      'Password': password, //lamiaa213 #2132000lola#
+      'grant_type' :'password',
     }).then((value) {
-      print(value.body);
-      emit(LogInSuccesseState());
+      if(value.statusCode == 200){
+        print(value.body);
+        emit(LogInPasswordSucessState());
+      }
+      else if (value.statusCode == 400)
+        {
+          print(value.body);
+          emit(LogInPasswordErorrState());
+        }
+
     }).catchError((error) {
       print(error);
       emit(LogInFailureState());
@@ -32,7 +41,7 @@ class LogInCubit extends Cubit<LogInStates> {
   void isVisibility ()
   {
     hidePassword = !hidePassword;
-    suffix = hidePassword ? Icon(Icons.visibility) : Icon(Icons.visibility_offg);
+    suffix = hidePassword ? Icon(Icons.visibility) : Icon(Icons.visibility_off);
     emit(LogInChangeVisibilityState());
   }
 

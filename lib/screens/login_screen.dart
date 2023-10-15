@@ -28,7 +28,16 @@ class _LogInState extends State<LogIn> {
     return BlocProvider(
       create: (BuildContext context) => LogInCubit(),
       child: BlocConsumer<LogInCubit, LogInStates>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if(state is LogInPasswordSucessState)
+            {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => HomePageScreen()));
+            }
+
+        },
         builder: (context, state) {
           return Scaffold(
               appBar: AppBar(
@@ -74,7 +83,7 @@ class _LogInState extends State<LogIn> {
                             return 'Please enter vaild email';
                           }
                         },
-                        obscureText: false,
+                        obscureText: false, keyboardType: TextInputType.emailAddress,
                       ),
                       SizedBox(
                         height: 10,
@@ -83,6 +92,7 @@ class _LogInState extends State<LogIn> {
                         controller: passwordLoginController,
                         hintText: 'enter your password',
                         labelText: 'Password',
+                        keyboardType: TextInputType.visiblePassword,
                         icon: IconButton(
                           onPressed: () {
                              LogInCubit.get(context).isVisibility();
@@ -90,6 +100,10 @@ class _LogInState extends State<LogIn> {
                           icon:LogInCubit.get(context).suffix ,
                         ),
                         validation: (value) {
+                          // if(value != passwordLoginController)
+                          //   {
+                          //     return 'Please enter correct password';
+                          //   }
                           if (value!.isEmpty) {
                             return 'Please enter vaild password';
                           }
@@ -105,10 +119,7 @@ class _LogInState extends State<LogIn> {
                                   email: emailLoginController.text,
                                   password: passwordLoginController.text);
                               //print('nameController ${nameController.text}');
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => HomePageScreen()));
+
                             }
                           },
                           child: Text(

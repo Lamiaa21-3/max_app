@@ -6,5 +6,7 @@
  class LogInLoadingState extends LogInStates{}
 
  class LogInFailureState extends LogInStates{}
+ class LogInPasswordErorrState extends LogInStates{}
+ class LogInPasswordSucessState extends LogInStates{}
 
  class LogInChangeVisibilityState extends LogInStates{}

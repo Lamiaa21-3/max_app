@@ -5,11 +5,9 @@ import 'package:http/http.dart' as http;
 
 class Api {
   Future post({required String url ,@required dynamic body}) async {
-    http.Response response = await http
+   return await http
         .post(Uri.parse(url), body: body);
-    Map<String,dynamic>data = jsonDecode(response.body);
-    print(data);
-    return data;
+
   }
 }
 //http://85.93.89.54:8020/api/Account/Register
