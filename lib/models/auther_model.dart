@@ -1,4 +1,4 @@
-class Auther_model {
+class AutherModel {
   String? accessToken;
   String? tokenType;
   int? expiresIn;
@@ -6,7 +6,7 @@ class Auther_model {
   String? issued;
   String? expires;
 
-  Auther_model(
+  AutherModel(
       {this.accessToken,
         this.tokenType,
         this.expiresIn,
@@ -14,7 +14,7 @@ class Auther_model {
         this.issued,
         this.expires});
 
-  Auther_model.fromJson(Map<String, dynamic> json) {
+  AutherModel.fromJson(Map<String, dynamic> json) {
     accessToken = json['access_token'];
     tokenType = json['token_type'];
     expiresIn = json['expires_in'];

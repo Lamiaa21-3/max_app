@@ -34,6 +34,7 @@ class _LogInState extends State<LogIn> {
 
         },
         builder: (context, state) {
+
           return Scaffold(
               appBar: AppBar(
                 backgroundColor: Colors.white,
@@ -106,9 +107,7 @@ class _LogInState extends State<LogIn> {
                         },
                         obscureText: LogInCubit.get(context).hidePassword,
                       ),
-                      state is LogInLoadingState
-                          ? Center(child: CircularProgressIndicator())
-                          : MaterialButton(
+                    state is LogInLoadingState? CircularProgressIndicator() : MaterialButton(
                               color: Colors.teal,
                               onPressed: () {
                                 if (formLoginKey.currentState!.validate()) {
