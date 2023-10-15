@@ -21,21 +21,16 @@ class _LogInState extends State<LogIn> {
 
   var formLoginKey = GlobalKey<FormState>();
 
-
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => LogInCubit(),
       child: BlocConsumer<LogInCubit, LogInStates>(
         listener: (context, state) {
-          if(state is LogInPasswordSucessState)
-            {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => HomePageScreen()));
-            }
+          if (state is LogInPasswordSucessState) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => HomePageScreen()));
+          }
 
         },
         builder: (context, state) {
@@ -83,7 +78,8 @@ class _LogInState extends State<LogIn> {
                             return 'Please enter vaild email';
                           }
                         },
-                        obscureText: false, keyboardType: TextInputType.emailAddress,
+                        obscureText: false,
+                        keyboardType: TextInputType.emailAddress,
                       ),
                       SizedBox(
                         height: 10,
@@ -95,9 +91,9 @@ class _LogInState extends State<LogIn> {
                         keyboardType: TextInputType.visiblePassword,
                         icon: IconButton(
                           onPressed: () {
-                             LogInCubit.get(context).isVisibility();
+                            LogInCubit.get(context).isVisibility();
                           },
-                          icon:LogInCubit.get(context).suffix ,
+                          icon: LogInCubit.get(context).suffix,
                         ),
                         validation: (value) {
                           // if(value != passwordLoginController)
@@ -110,28 +106,33 @@ class _LogInState extends State<LogIn> {
                         },
                         obscureText: LogInCubit.get(context).hidePassword,
                       ),
-                      MaterialButton(
-                          color: Colors.teal,
-                          onPressed: () {
-
-                            if (formLoginKey.currentState!.validate()) {
-                              LogInCubit.get(context).loginPost(
-                                  email: emailLoginController.text,
-                                  password: passwordLoginController.text);
-                              //print('nameController ${nameController.text}');
-
-                            }
-                          },
-                          child: Text(
-                            'LogIn',
-                            style: TextStyle(color: Colors.black),
-                          )),
+                      state is LogInLoadingState
+                          ? Center(child: CircularProgressIndicator())
+                          : MaterialButton(
+                              color: Colors.teal,
+                              onPressed: () {
+                                if (formLoginKey.currentState!.validate()) {
+                                  LogInCubit.get(context).loginPost(
+                                      email: emailLoginController.text,
+                                      password: passwordLoginController.text);
+                                  //print('nameController ${nameController.text}');
+                                }
+                              },
+                              child: Text(
+                                'LogIn',
+                                style: TextStyle(color: Colors.black),
+                              )),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text('Do not have any account?'),
                           TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+
+
+                                Navigator.pop(context);
+
+                              },
                               child: Text(
                                 'SignUp',
                                 style: TextStyle(color: Colors.black),

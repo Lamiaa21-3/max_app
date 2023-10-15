@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart';
 import 'package:new_app/components/api.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:new_app/cubit/login_cubit/login_state.dart';
@@ -28,6 +31,8 @@ class LogInCubit extends Cubit<LogInStates> {
       else if (value.statusCode == 400)
         {
           print(value.body);
+          final reponse = json.decode(value.body);
+            Fluttertoast.showToast(msg: '${reponse['error_description']}');
           emit(LogInPasswordErorrState());
         }
 

@@ -1,8 +1,10 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart';
 import 'package:new_app/components/api.dart';
 
@@ -32,8 +34,18 @@ class RegisterCubit extends Cubit<RegisterStates> {
       'ConfirmPassword': confirmPassword,
 'IsRepresentative':'true',
     }).then((value) {
-      log(value.body.toString());
-      emit(RegisterSuccesseState());
+      if(value.statusCode == 200){
+        print(value.body);
+        emit(RegisterSucessPasswordState());
+      }
+      else if (value.statusCode == 400)
+      {
+        print(value.body);
+        final reponse = json.decode(value.body);
+        Fluttertoast.showToast(msg: '${reponse['Message']}');
+        emit(RegisterFailurePasswordState());
+      }
+
     }).catchError((error) {
       print(error);
       emit(RegisterFailureState());

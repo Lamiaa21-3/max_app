@@ -30,6 +30,7 @@ class RegisterScreen extends StatelessWidget {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => LogIn()));
           }
+
         },
         builder: (context, state) {
           return Scaffold(
@@ -129,10 +130,10 @@ class RegisterScreen extends StatelessWidget {
                           hintText: 'enter your conformPassword',
                           labelText: 'conformPassword',
                           validation: (value) {
-                            if(value != passwordController.text)
-                              {
-                                return ('please enter your rigth conformPassword');
-                              }
+                            // if(value != passwordController.text)
+                            //   {
+                            //     return ('please enter your rigth conformPassword');
+                            //   }
                             if (value!.isEmpty) {
                               return ('please enter your conformPassword');
                             }
@@ -154,6 +155,8 @@ class RegisterScreen extends StatelessWidget {
                                     confirmPassword:
                                         conformPassworController.text);
                               }
+
+
                             },
                             child: Text(
                               'Sign Up',
