@@ -12,7 +12,7 @@ class HomePageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        HomePageCubit.get(context).getHome();
+        HomePageCubit.get(context).getHomePage();
         print('object');
     print(LogInCubit.get(context).autherModel?.userName);
     return BlocConsumer<LogInCubit,LogInStates>(
@@ -37,7 +37,7 @@ class HomePageScreen extends StatelessWidget {
             gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
-            itemCount: 30,
+            itemCount: HomePageCubit.get(context).homePageList.length,
             itemBuilder: (BuildContext context, int index) {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -53,11 +53,11 @@ class HomePageScreen extends StatelessWidget {
                           color: Colors.teal,
 
                         ),
-                        child: Center(child: Text('12% OFF')),
+                        child: Center(child: Text('${HomePageCubit.get(context).homePageList[index].product?.nameInEnglish}')),
                       ),
                       Image.network(
-                          'https://www.pngwing.com/en/search?q=watches'),
-                      Center(child: Text('watch')),
+                          'https://ecommerce.6sigmacode.com${HomePageCubit.get(context).homePageList[index].product?.mainImage}',height: 120,),
+                      Center(child: Text('${HomePageCubit.get(context).homePageList[index].date}')),
                     ],
                   ),
                 ),

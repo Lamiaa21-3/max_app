@@ -1,3 +1,11 @@
+
+
+
+
+import 'dart:convert';
+
+
+
 class HomePageModel {
   int? id;
   int? productId;
@@ -18,14 +26,14 @@ class HomePageModel {
     id = json['Id'];
     productId = json['ProductId'];
     product =
-    json['Product'] != null ? new Product.fromJson(json['Product']) : null;
+    json['Product'] != null ? Product.fromJson(json['Product']) : null;
     userId = json['UserId'];
     user = json['User'] != null ? new User.fromJson(json['User']) : null;
     date = json['Date'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['Id'] = this.id;
     data['ProductId'] = this.productId;
     if (this.product != null) {
@@ -41,14 +49,14 @@ class HomePageModel {
 }
 
 class Product {
-  int? id;
+  num? id;
   String? nameInArabic;
   String? nameInEnglish;
   String? descriptionInArabic;
   String? descriptionInEnglish;
-  int? categoryId;
+  num? categoryId;
   Null? category;
-  int? brandId;
+  num? brandId;
   Null? brand;
   Null? companyId;
   Null? company;
@@ -56,8 +64,8 @@ class Product {
   Null? barcode;
   bool? autoBarcode;
   String? mainImage;
-  int? oldPrice;
-  int? price;
+  num? oldPrice;
+  num? price;
   Null? productTaxes;
   Null? addedById;
   Null? addedDate;
