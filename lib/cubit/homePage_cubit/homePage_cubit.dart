@@ -15,6 +15,7 @@ class HomePageCubit extends Cubit<HomePageStates> {
   //HomePageModel? homePageModel;
 
   List<HomePageModel> homePageList = [];
+  List<HomePageModel> cartList = [];
 
   Future getHomePage() async {
     emit(HomePageLoadingState());
@@ -28,6 +29,21 @@ class HomePageCubit extends Cubit<HomePageStates> {
         homePageList.add(HomePageModel.fromJson(data[i]));
       }
       print('${homePageList[2].date}');
+    emit(HomePageSuccesseState());
+
+  }
+  Future getCart() async {
+    emit(HomePageLoadingState());
+    var  response =   await Api().get(url: 'http://85.93.89.54:8020/Home/GetBestSelling',header: {
+      'Authorization':' Bearer $token',
+    });
+    //print(response.body);
+    List<dynamic> data = jsonDecode(response.body);
+
+    for (int i = 0; i < data.length; i++) {
+      cartList.add(HomePageModel.fromJson(data[i]));
+    }
+    print('${cartList[2].date}');
     emit(HomePageSuccesseState());
 
   }

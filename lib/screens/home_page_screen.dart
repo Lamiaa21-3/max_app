@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_app/cubit/homePage_cubit/homePage_cubit.dart';
 import 'package:new_app/cubit/login_cubit/login_cubit.dart';
 import 'package:new_app/cubit/login_cubit/login_state.dart';
-import 'package:new_app/screens/cart_screen.dart';
+import 'package:new_app/screens/cart_screen/cart_screen.dart';
 
 import '../components/constants.dart';
 
@@ -33,12 +33,12 @@ class HomePageScreen extends StatelessWidget {
             ),
             actions: [
               IconButton(onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> CartScreen()));
+
               }, icon: Icon(Icons.shopping_cart),color: Colors.black,),
             ],
             elevation: 0,
             title: Text(
-              'HomePage',
+              'Favourite',
               style: TextStyle(color: Colors.black),
             ),
           ),
@@ -49,30 +49,42 @@ class HomePageScreen extends StatelessWidget {
               itemCount: HomePageCubit.get(context).homePageList.length,
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Card(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                          width: 100,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: Colors.teal,
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    decoration: BoxDecoration(boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        blurRadius: 20.0,
+                        offset: Offset(10,10),
+                      ),
+                    ]),
+                    child: Card(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Container(
+                            width: 100,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Colors.orange,
+                            ),
+                            child: Center(
+                                child: Text(' 34% OFF',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+                            ),
                           ),
-                          child: Center(
-                              child: Text(
-                                  '${HomePageCubit.get(context).homePageList[index].product?.nameInEnglish}')),
-                        ),
-                        Image.network(
-                          'https://ecommerce.6sigmacode.com${HomePageCubit.get(context).homePageList[index].product?.mainImage}',
-                          height: 120,
-                        ),
-                        Center(
+                             Center(child: Image.network('https://canprev.ca/wp-content/uploads/2023/03/1647358198_CP-pH-Pro-90vcaps-RGB-195295-V1_839_1430.png',height: 90,)),
+
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8),
                             child: Text(
-                                '${HomePageCubit.get(context).homePageList[index].date}')),
-                      ],
+                            '${HomePageCubit.get(context).homePageList[index].product?.nameInEnglish}',style: TextStyle(fontSize: 18),
+                              ),
+                          ),
+
+
+                        ],
+                      ),
                     ),
                   ),
                 );

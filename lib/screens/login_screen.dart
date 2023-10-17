@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_app/components/components.dart';
 import 'package:new_app/cubit/login_cubit/login_cubit.dart';
 import 'package:new_app/cubit/login_cubit/login_state.dart';
+import 'package:new_app/screens/bottomNagiationScreen.dart';
 import 'package:new_app/screens/register_screen.dart';
 
 import 'home_page_screen.dart';
@@ -29,7 +30,7 @@ class _LogInState extends State<LogIn> {
         listener: (context, state) {
           if (state is LogInPasswordSucessState) {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => HomePageScreen()));
+                MaterialPageRoute(builder: (context) => BottomNavgitionBarScreen()));
           }
 
         },
@@ -115,6 +116,7 @@ class _LogInState extends State<LogIn> {
                                       email: emailLoginController.text,
                                       password: passwordLoginController.text);
                                   //print('nameController ${nameController.text}');
+                                // Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavgitionBar()));
                                 }
                               },
                               child: Text(
