@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:new_app/cubit/cart_cubit/cart_cubit.dart';
 import 'package:new_app/cubit/homePage_cubit/homePage_cubit.dart';
 import 'package:new_app/cubit/login_cubit/login_cubit.dart';
 import 'package:new_app/screens/register_screen.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         
         BlocProvider(create: (BuildContext context ) => LogInCubit()),
         BlocProvider(create: (BuildContext context ) => HomePageCubit()),
+        BlocProvider(create: (BuildContext context ) => CartCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

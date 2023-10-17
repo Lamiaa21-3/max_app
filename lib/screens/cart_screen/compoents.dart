@@ -2,8 +2,11 @@
 
 
 
+
 import 'package:flutter/material.dart';
 import 'package:new_app/cubit/homePage_cubit/homePage_cubit.dart';
+
+import '../../cubit/cart_cubit/cart_cubit.dart';
 
 Padding buildGrideView() {
   return Padding(
@@ -64,24 +67,7 @@ Padding buildGrideView() {
   );
 }
 
-Column buildColumnListView({required int index,required BuildContext context}) {
-  return Column(
-    children: [
-      Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          color: Colors.teal,
-          width: 100,
-          height: 70,
-        ),
-      ),
-      SizedBox(
-        height: 10,
-      ),
-      Text('${HomePageCubit.get(context).cartList[index].product?.nameInEnglish}'),
-    ],
-  );
-}
+
 
 TextFormField buildTextFormField() {
   return TextFormField(
