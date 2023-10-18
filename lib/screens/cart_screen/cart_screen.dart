@@ -22,7 +22,9 @@ class CartScreen extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
+
             body: Center(
+
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Expanded(

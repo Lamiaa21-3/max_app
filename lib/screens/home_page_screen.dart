@@ -32,9 +32,11 @@ class HomePageScreen extends StatelessWidget {
               ),
             ),
             actions: [
-              IconButton(onPressed: (){
-
-              }, icon: Icon(Icons.shopping_cart),color: Colors.black,),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.shopping_cart),
+                color: Colors.black,
+              ),
             ],
             elevation: 0,
             title: Text(
@@ -55,7 +57,7 @@ class HomePageScreen extends StatelessWidget {
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.2),
                         blurRadius: 20.0,
-                        offset: Offset(10,10),
+                        offset: Offset(10, 10),
                       ),
                     ]),
                     child: Card(
@@ -70,19 +72,27 @@ class HomePageScreen extends StatelessWidget {
                               color: Colors.orange,
                             ),
                             child: Center(
-                                child: Text(' 34% OFF',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),
+                              child: Text(
+                                ' 34% OFF',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
                             ),
                           ),
-                             Center(child: Image.network('https://canprev.ca/wp-content/uploads/2023/03/1647358198_CP-pH-Pro-90vcaps-RGB-195295-V1_839_1430.png',height: 90,)),
-
+                          Center(
+                              child: Image.network(
+                            'https://canprev.ca/wp-content/uploads/2023/03/1647358198_CP-pH-Pro-90vcaps-RGB-195295-V1_839_1430.png',
+                            height: 90,
+                          )),
                           Padding(
                             padding: const EdgeInsets.only(left: 8),
                             child: Text(
-                            '${HomePageCubit.get(context).homePageList[index].product?.nameInEnglish}',style: TextStyle(fontSize: 18),
-                              ),
+                              '${HomePageCubit.get(context).homePageList[index].product?.nameInEnglish}',
+                              style: TextStyle(fontSize: 18),
+                            ),
                           ),
-
-
                         ],
                       ),
                     ),
