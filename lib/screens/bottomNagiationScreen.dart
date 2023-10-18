@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:new_app/screens/home_page_screen.dart';
-import 'package:new_app/screens/favourite_screen.dart';
+import 'package:new_app/screens/favourite_screen/favourite_screen.dart';
 import 'package:new_app/screens/search_screen.dart';
 
 import 'application_screen.dart';
@@ -20,8 +20,9 @@ class _BottomNavgitionBarScreenState extends State<BottomNavgitionBarScreen> {
 
   List<Widget> screens = [
     CartScreen(),
-    HomePageScreen(),
     FavouritScreen(),
+    HomePageScreen(),
+
 
     SearchScree(),
     ApplicationScreen(),
