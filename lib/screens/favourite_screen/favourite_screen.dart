@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/cubit/favourite_cubit/favourite_cubit.dart';
 import 'package:new_app/screens/favourite_screen/favourite_screen_components.dart';
 
 class FavouritScreen extends StatelessWidget {
@@ -6,6 +7,7 @@ class FavouritScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FavouriteCubit.get(context).getFavourite();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
