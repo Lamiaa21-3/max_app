@@ -34,7 +34,7 @@ class FavouriteCubit extends Cubit<FavouriteStates> {
     for (int i = 0; i < data.length; i++) {
       favouriteLisy.add(FavouriteModel.fromJson(data[i]));
     }
-    print('lllllllllllllllll${favouriteLisy[2].productDetail?.product}');
+    print('llllllllllllllllmmmmmmml${favouriteLisy[2].productDetail?.addedDate}');
     emit(FavouriteSuccesseState());
 
   }

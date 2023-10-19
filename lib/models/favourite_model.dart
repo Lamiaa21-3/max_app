@@ -36,8 +36,8 @@ class ProductDetail {
   Null? product;
   Null? sKU;
   Null? oldPrice;
-  int? price;
-  int? repPercentage;
+  num? price;
+  num? repPercentage;
   Null? barcode;
   Null? barcodeImage;
   int? quantity;
@@ -124,7 +124,7 @@ class ProductDetail {
 class ProductDetailImage {
   int? id;
   String? image;
-  int? productDetailId;
+  num? productDetailId;
   Null? productDetail;
 
   ProductDetailImage(

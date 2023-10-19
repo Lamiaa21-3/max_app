@@ -1,10 +1,11 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:new_app/cubit/favourite_cubit/favourite_cubit.dart';
 
 class FavouruteListComponents extends StatelessWidget {
-  const FavouruteListComponents({Key? key}) : super(key: key);
-
+   FavouruteListComponents({Key? key, required this.index}) : super(key: key);
+  final int index;
   @override
   Widget build(BuildContext context) {
     return   Padding(
@@ -12,11 +13,7 @@ class FavouruteListComponents extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              color: Colors.green,
-              width: 100,
-              height: 100,
-            ),
+           Image.asset('assets/favourite.png',width: 100,height: 100,),
             SizedBox(
               width: 10,
             ),
@@ -27,11 +24,11 @@ class FavouruteListComponents extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'LAMIAA',
+                      '${FavouriteCubit.get(context).favouriteLisy[index].productDetail?.oldPrice}',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                     ),
                     SizedBox(
-                      width: 120,
+                      width: 150,
                     ),
 
                     Icon(Icons.highlight_remove),
@@ -40,14 +37,14 @@ class FavouruteListComponents extends StatelessWidget {
                 SizedBox(
                   height: 8,
                 ),
-                Text('22-11-2020',style: TextStyle( fontSize: 18),),
+                Text('${FavouriteCubit.get(context).favouriteLisy[index].productDetail?.addedDate}',style: TextStyle( fontSize: 18),),
                 SizedBox(
                   height: 8,
                 ),
                 Row(
 
                   children: [
-                    Text('\$ 23',style: TextStyle( fontSize: 18),),
+                    Text('\$ ${FavouriteCubit.get(context).favouriteLisy[index].productDetail?.price}',style: TextStyle( fontSize: 18),),
                     SizedBox(
                       width: 170,
                     ),
