@@ -12,6 +12,7 @@ import 'package:new_app/components/constants.dart';
 import 'package:new_app/cubit/login_cubit/login_state.dart';
 import 'package:new_app/models/auther_model.dart';
 import 'package:new_app/components/constants.dart';
+import 'package:new_app/shared_perference/cash/cash_helper.dart';
 
 class LogInCubit extends Cubit<LogInStates> {
   LogInCubit() : super(LogInInitialState());
@@ -35,6 +36,7 @@ class LogInCubit extends Cubit<LogInStates> {
      //print('uuuuuuuuuuuuuuu${autherModel!.userName}');
      user_name=autherModel!.userName!;
         token = autherModel!.accessToken!;
+        CashDate.setDate(key: 'token', value: token);
         emit(LogInPasswordSucessState());
       }
       else if (value.statusCode == 400)

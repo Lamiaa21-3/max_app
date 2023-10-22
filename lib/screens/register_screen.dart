@@ -19,6 +19,10 @@ class RegisterScreen extends StatelessWidget {
   var conformPassworController = TextEditingController()..text;
 
   var formKey = GlobalKey<FormState>();
+  final FocusNode focus1 =  FocusNode();
+  final FocusNode focus2 =  FocusNode();
+  final FocusNode focus3 =  FocusNode();
+  final FocusNode focus4 =  FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -76,11 +80,14 @@ class RegisterScreen extends StatelessWidget {
                               return ('please enter your name');
                             }
                           },
+                          onSubmited: (String){
+                            FocusScope.of(context).requestFocus(focus2);
+                          },
                           obscureText: false,
                           icon: IconButton(
                             onPressed: () {},
                             icon: Icon(Icons.person),
-                          ),
+                          ), focusNode: focus1,
                         ),
                         SizedBox(
                           height: 10,
@@ -99,12 +106,13 @@ class RegisterScreen extends StatelessWidget {
                             if (value!.isEmpty) {
                               return ('please enter your email');
                             }
-                          }, keyboardType: TextInputType.emailAddress,
+                          }, keyboardType: TextInputType.emailAddress, onSubmited: (String ) { FocusScope.of(context).requestFocus(focus3); }, focusNode: focus2,
                         ),
                         SizedBox(
                           height: 10,
                         ),
                         TextFieldComponent(
+                          focusNode: focus3,
                           keyboardType:TextInputType.visiblePassword ,
                           obscureText: RegisterCubit.get(context).hidePassword,
                           controller: passwordController,
@@ -120,12 +128,14 @@ class RegisterScreen extends StatelessWidget {
                             if (value!.isEmpty) {
                               return ('please enter your password');
                             }
-                          },
+                          }, onSubmited: (String ) { FocusScope.of(context).requestFocus(focus4); },
                         ),
                         SizedBox(
                           height: 10,
                         ),
                         TextFieldComponent(
+                          focusNode: focus4,
+                          onSubmited: (String){},
                           controller: conformPassworController,
                           hintText: 'enter your conformPassword',
                           labelText: 'conformPassword',

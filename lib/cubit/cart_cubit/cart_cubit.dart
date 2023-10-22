@@ -32,7 +32,7 @@ class CartCubit extends Cubit<CartStates> {
     for (int i = 0; i < data.length; i++) {
       cartList.add(CartHomePage.fromJson(data[i]));
     }
-    print('lllllllllllllllll${cartList[2].nameInEnglish}');
+   // print('lllllllllllllllll${cartList[2].nameInEnglish}');
     emit(CartSuccesseState());
 
   }

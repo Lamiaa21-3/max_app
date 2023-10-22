@@ -4,7 +4,9 @@ import 'package:new_app/components/components.dart';
 import 'package:new_app/cubit/login_cubit/login_cubit.dart';
 import 'package:new_app/cubit/login_cubit/login_state.dart';
 import 'package:new_app/screens/bottomNagiationScreen.dart';
+import 'package:new_app/screens/onBoarding_screen/onBoarding_screen.dart';
 import 'package:new_app/screens/register_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'home_page_screen.dart';
 
@@ -19,6 +21,8 @@ class _LogInState extends State<LogIn> {
   var emailLoginController = TextEditingController()..text;
 
   var passwordLoginController = TextEditingController()..text;
+   final FocusNode focusNode1 =  FocusNode();
+  final FocusNode focusNode2 =  FocusNode();
 
   var formLoginKey = GlobalKey<FormState>();
 
@@ -68,6 +72,7 @@ class _LogInState extends State<LogIn> {
                         style: TextStyle(fontSize: 20, color: Colors.grey),
                       ),
                       TextFieldComponent(
+                        focusNode: focusNode1,
                         controller: emailLoginController,
                         hintText: 'enter your email',
                         labelText: 'Email',
@@ -75,18 +80,24 @@ class _LogInState extends State<LogIn> {
                           onPressed: () {},
                           icon: Icon(Icons.email),
                         ),
+
                         validation: (value) {
                           if (value!.isEmpty) {
                             return 'Please enter vaild email';
                           }
                         },
+
                         obscureText: false,
-                        keyboardType: TextInputType.emailAddress,
+                        keyboardType: TextInputType.emailAddress, onSubmited: (String ) {
+                          FocusScope.of(context).requestFocus(focusNode2);
+
+                      },
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       TextFieldComponent(
+                        focusNode:focusNode2 ,
                         controller: passwordLoginController,
                         hintText: 'enter your password',
                         labelText: 'Password',
@@ -106,11 +117,12 @@ class _LogInState extends State<LogIn> {
                             return 'Please enter vaild password';
                           }
                         },
-                        obscureText: LogInCubit.get(context).hidePassword,
+                        obscureText: LogInCubit.get(context).hidePassword, onSubmited: (String ) {  },
                       ),
                     state is LogInLoadingState? CircularProgressIndicator() : MaterialButton(
                               color: Colors.teal,
-                              onPressed: () {
+                              onPressed: () async {
+
                                 if (formLoginKey.currentState!.validate()) {
                                   LogInCubit.get(context).loginPost(
                                       email: emailLoginController.text,
@@ -118,6 +130,9 @@ class _LogInState extends State<LogIn> {
                                   //print('nameController ${nameController.text}');
                                 // Navigator.push(context, MaterialPageRoute(builder: (context)=>BottomNavgitionBar()));
                                 }
+                               final SharedPreferences sharedPreference = await  SharedPreferences.getInstance();
+                                sharedPreference.setString('userName', emailLoginController.text);
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>OnBoardingScreen()));
                               },
                               child: Text(
                                 'LogIn',

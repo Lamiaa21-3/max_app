@@ -8,7 +8,7 @@ class TextFieldComponent extends StatelessWidget {
     required this.labelText,
    required this.icon,
     required this.validation,
-   required this.obscureText, required this.keyboardType,
+   required this.obscureText, required this.keyboardType, required this.focusNode, required this.onSubmited,
   })
       : super(key: key);
   final TextEditingController? controller;
@@ -18,10 +18,14 @@ class TextFieldComponent extends StatelessWidget {
   final IconButton icon;
   final  String? Function(String?)? validation;
   final TextInputType keyboardType;
+  final FocusNode? focusNode;
+  final String? Function(String?)? onSubmited;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onFieldSubmitted: onSubmited,
+      focusNode: focusNode,
       keyboardType: keyboardType,
       obscureText:obscureText ,
       validator: validation,
