@@ -15,13 +15,13 @@ class FavouritScreen extends StatelessWidget {
       listener: (context,state){},
       builder: (context,state){
        return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            title: Text(
-              'Favourite Screen',
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
+          // appBar: AppBar(
+          //   backgroundColor: Colors.white,
+          //   title: Text(
+          //     'Favourite Screen',
+          //     style: TextStyle(color: Colors.black),
+          //   ),
+          // ),
           body: ListView.separated(
             itemBuilder: (BuildContext context, int index) {
               return FavouruteListComponents(index: index,);

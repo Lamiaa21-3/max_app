@@ -3,7 +3,7 @@ import 'package:new_app/cubit/login_cubit/login_cubit.dart';
 import 'package:new_app/screens/home_page_screen.dart';
 import 'package:new_app/screens/favourite_screen/favourite_screen.dart';
 import 'package:new_app/screens/register_screen.dart';
-import 'package:new_app/screens/search_screen.dart';
+import 'package:new_app/screens/personal_screen.dart';
 import 'package:new_app/shared_perference/cash/cash_helper.dart';
 
 import '../components/constants.dart';
@@ -25,15 +25,16 @@ class _BottomNavgitionBarScreenState extends State<BottomNavgitionBarScreen> {
     CartScreen(),
     FavouritScreen(),
     HomePageScreen(),
-    SearchScree(),
     ApplicationScreen(),
+    PersonalScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Drawer'),
+      backgroundColor: Colors.teal[800],
+        elevation: 0,
       ),
       drawer: Drawer(
         child: ListView(
@@ -43,7 +44,7 @@ class _BottomNavgitionBarScreenState extends State<BottomNavgitionBarScreen> {
 
               height: 190,
               width: double.infinity,
-              color: Colors.indigo,
+              color: Colors.teal[800],
               child: Column(
                 children: [
                   SizedBox(height: 10,),

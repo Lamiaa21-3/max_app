@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:new_app/cubit/cart_cubit/cart_cubit.dart';
 import 'package:new_app/cubit/cart_cubit/cart_state.dart';
-import 'package:new_app/screens/search_screen.dart';
+import 'package:new_app/screens/personal_screen.dart';
 
 import '../../components/components.dart';
 import '../../cubit/homePage_cubit/homePage_cubit.dart';

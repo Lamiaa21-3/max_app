@@ -24,11 +24,11 @@ class FavouruteListComponents extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      '${FavouriteCubit.get(context).favouriteLisy[index].productDetail?.oldPrice}',
+                      '${FavouriteCubit.get(context).favouriteLisy[index].product}',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                     ),
                     SizedBox(
-                      width: 150,
+                      width: 180,
                     ),
 
                     Icon(Icons.highlight_remove),
@@ -37,14 +37,14 @@ class FavouruteListComponents extends StatelessWidget {
                 SizedBox(
                   height: 8,
                 ),
-                Text('${FavouriteCubit.get(context).favouriteLisy[index].productDetail?.addedDate}',style: TextStyle( fontSize: 18),),
+                Text('${FavouriteCubit.get(context).favouriteLisy[index].date}',style: TextStyle( fontSize: 18),),
                 SizedBox(
                   height: 8,
                 ),
                 Row(
 
                   children: [
-                    Text('\$ ${FavouriteCubit.get(context).favouriteLisy[index].productDetail?.price}',style: TextStyle( fontSize: 18),),
+                    Text('\$ ${FavouriteCubit.get(context).favouriteLisy[index].user?.name}',style: TextStyle( fontSize: 18),),
                     SizedBox(
                       width: 170,
                     ),

@@ -20,30 +20,30 @@ class HomePageScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.black,
-              ),
-            ),
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.shopping_cart),
-                color: Colors.black,
-              ),
-            ],
-            elevation: 0,
-            title: Text(
-              'Favourite',
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
+          // appBar: AppBar(
+          //   backgroundColor: Colors.white,
+          //   leading: IconButton(
+          //     onPressed: () {
+          //       Navigator.pop(context);
+          //     },
+          //     icon: Icon(
+          //       Icons.arrow_back,
+          //       color: Colors.black,
+          //     ),
+          //   ),
+          //   actions: [
+          //     IconButton(
+          //       onPressed: () {},
+          //       icon: Icon(Icons.shopping_cart),
+          //       color: Colors.black,
+          //     ),
+          //   ],
+          //   elevation: 0,
+          //   title: Text(
+          //     'Favourite',
+          //     style: TextStyle(color: Colors.black),
+          //   ),
+          // ),
           body: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,

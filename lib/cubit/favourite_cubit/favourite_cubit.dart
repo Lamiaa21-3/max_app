@@ -29,12 +29,14 @@ class FavouriteCubit extends Cubit<FavouriteStates> {
       'Authorization':' Bearer $token',
     });
     //print(response.body);
-    List<dynamic> data = jsonDecode(response.body);
+  final data = jsonDecode(response.body);
+  print('ddddddddddddddddd$data');
 
     for (int i = 0; i < data.length; i++) {
       favouriteLisy.add(FavouriteModel.fromJson(data[i]));
     }
-    print('llllllllllllllllmmmmmmml${favouriteLisy[2].productDetail?.addedDate}');
+   // print('lamiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+    //print('llllllllllllllllmmmmmmml${favouriteLisy[2].productDetail?.addedDate}');
     emit(FavouriteSuccesseState());
 
   }
