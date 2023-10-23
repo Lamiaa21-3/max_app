@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/cubit/login_cubit/login_cubit.dart';
+import 'package:new_app/cubit/register_cubit/register_cubit.dart';
 import 'package:new_app/screens/home_page_screen.dart';
 import 'package:new_app/screens/favourite_screen/favourite_screen.dart';
 import 'package:new_app/screens/register_screen.dart';
@@ -68,7 +69,7 @@ class _BottomNavgitionBarScreenState extends State<BottomNavgitionBarScreen> {
 
                   ),
                   SizedBox(height: 10,),
-                  Text('Lamiaa Gamal',style: TextStyle(color: Colors.white,fontSize: 30),),
+                  Text('Lamiaa Gamal ',style: TextStyle(color: Colors.white,fontSize: 30),),
                   SizedBox(height: 10,),
                   Text('lamiaa@gamail.com',style: TextStyle(color: Colors.white,fontSize: 15),),
                 ],

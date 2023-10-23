@@ -26,8 +26,9 @@ class PersonalScreen extends StatelessWidget {
             labelText: '',
             keyboardType: TextInputType.visiblePassword,
             icon: IconButton(onPressed: () {
-              RegisterCubit.get(context).isVisibility();
-            },  icon: RegisterCubit.get(context).suffix,
+              //RegisterCubit.get(context).isVisibility();
+            }, icon: Icon(Icons.visibility),
+              //icon: RegisterCubit.get(context).suffix,
             ),
             validation: (value) {
               if (value!.isEmpty) {
@@ -49,8 +50,9 @@ class PersonalScreen extends StatelessWidget {
             labelText: '',
             keyboardType: TextInputType.visiblePassword,
             icon: IconButton(onPressed: () {
-              RegisterCubit.get(context).isVisibility();
-            },  icon: RegisterCubit.get(context).suffix,
+              //RegisterCubit.get(context).isVisibility();
+            }, icon: Icon(Icons.visibility),
+              //icon: RegisterCubit.get(context).suffix,
             ),
             validation: (value) {
               // if(value != passwordLoginController)
@@ -76,8 +78,9 @@ class PersonalScreen extends StatelessWidget {
             labelText: '',
             keyboardType: TextInputType.visiblePassword,
             icon: IconButton(onPressed: () {
-              RegisterCubit.get(context).isVisibility();
-            },  icon: RegisterCubit.get(context).suffix,
+              //RegisterCubit.get(context).isVisibility();
+            }, icon: Icon(Icons.visibility),
+              //icon: RegisterCubit.get(context).suffix,
             ),
             validation: (value) {
               // if(value != passwordLoginController)

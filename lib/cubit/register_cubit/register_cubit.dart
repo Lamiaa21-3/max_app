@@ -60,4 +60,5 @@ class RegisterCubit extends Cubit<RegisterStates> {
     suffix = hidePassword ? Icon(Icons.visibility) : Icon(Icons.visibility_off);
     emit(RegisterChangeVisibilityState());
   }
+
 }
