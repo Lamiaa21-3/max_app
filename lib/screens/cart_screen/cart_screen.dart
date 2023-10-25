@@ -13,6 +13,7 @@ import '../../cubit/homePage_cubit/homePage_cubit.dart';
 import '../../cubit/homePage_cubit/homePage_state.dart';
 import '../../cubit/search_cubit/search_cubit.dart';
 import '../../models/cart_model.dart';
+import '../conform_screen.dart';
 import 'compoents.dart';
 
 class CartScreen extends StatelessWidget {
@@ -54,7 +55,9 @@ class CartScreen extends StatelessWidget {
                                 }),
                               ),
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ConformScreen()));
+                                },
                                 icon: const Icon(Icons.shopping_cart_outlined),
                                 iconSize: 38,
                               )

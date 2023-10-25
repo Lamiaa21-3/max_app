@@ -26,7 +26,7 @@ class CartCubit extends Cubit<CartStates> {
     if(isChange == true)
       {
        color=Colors.red;
-       
+      // favouriteId.add(id.toString());
        isChange=false;
        emit(CartTrueSuccesseState());
       }
@@ -50,10 +50,12 @@ class CartCubit extends Cubit<CartStates> {
 
     for (int i = 0; i < data.length; i++) {
       cartList.add(CartHomePage.fromJson(data[i]));
-      //favouriteId.add(data['']);
+      favouriteId.add(data[i]['Id'].toString());
+
       
     }
-   // print('lllllllllllllllll${cartList[2].nameInEnglish}');
+    print('ffffffffffffffff$favouriteId');
+    // print('lllllllllllllllll${cartList[2].nameInEnglish}');
     emit(CartSuccesseState());
 
   }
