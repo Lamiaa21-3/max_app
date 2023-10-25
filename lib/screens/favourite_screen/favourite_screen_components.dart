@@ -44,7 +44,7 @@ class FavouruteListComponents extends StatelessWidget {
                 Row(
 
                   children: [
-                    Text('\$ ${FavouriteCubit.get(context).favouriteLisy[index].user?.name}',style: TextStyle( fontSize: 18),),
+                    Text('\$ ${FavouriteCubit.get(context).favouriteLisy[index].product?.price}',style: TextStyle( fontSize: 18),),
                     SizedBox(
                       width: 170,
                     ),

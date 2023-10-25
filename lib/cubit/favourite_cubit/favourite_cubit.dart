@@ -30,7 +30,7 @@ class FavouriteCubit extends Cubit<FavouriteStates> {
     });
     //print(response.body);
   final data = jsonDecode(response.body);
-  print('ddddddddddddddddd$data');
+  print('favourite$data');
 
     for (int i = 0; i < data.length; i++) {
       favouriteLisy.add(FavouriteModel.fromJson(data[i]));

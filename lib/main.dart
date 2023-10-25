@@ -5,6 +5,7 @@ import 'package:new_app/cubit/cart_cubit/cart_cubit.dart';
 import 'package:new_app/cubit/favourite_cubit/favourite_cubit.dart';
 import 'package:new_app/cubit/homePage_cubit/homePage_cubit.dart';
 import 'package:new_app/cubit/login_cubit/login_cubit.dart';
+import 'package:new_app/cubit/search_cubit/search_cubit.dart';
 import 'package:new_app/screens/bottomNagiationScreen.dart';
 import 'package:new_app/screens/home_page_screen.dart';
 import 'package:new_app/screens/onBoarding_screen/onBoarding_screen.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (BuildContext context ) => HomePageCubit()),
         BlocProvider(create: (BuildContext context ) => CartCubit()),
         BlocProvider(create: (BuildContext context ) =>FavouriteCubit ()),
+        BlocProvider(create: (BuildContext context ) =>SearchCubit ()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -8,7 +8,7 @@ import 'package:new_app/cubit/homePage_cubit/homePage_cubit.dart';
 
 import '../../cubit/cart_cubit/cart_cubit.dart';
 
-Padding buildGrideView() {
+Padding buildGrideView({required BuildContext context}) {
   return Padding(
     padding: const EdgeInsets.all(12.0),
     child: Container(
@@ -33,7 +33,9 @@ Padding buildGrideView() {
             Row(
               children: [
                 Spacer(),
-                IconButton(onPressed: (){}, icon: Icon(Icons.favorite_border_outlined)),
+                IconButton(onPressed: (){
+                  CartCubit.get(context).isTap();
+                }, icon: Icon(Icons.favorite_border_outlined,color: CartCubit.get(context).color,)),
               ],
             ),
             Image.network(
@@ -69,20 +71,23 @@ Padding buildGrideView() {
 
 
 
-TextFormField buildTextFormField() {
+TextFormField buildTextFormField({required  String? Function(String?)? onSubmited ,TextEditingController? searchController}) {
   return TextFormField(
-    //controller: searchController,
-    decoration: InputDecoration(
-        hintText: 'Search here....',
-        labelStyle: TextStyle(color: Colors.black),
-        enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.black),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderSide:
-          const BorderSide(color: Colors.indigo),
-          borderRadius: BorderRadius.circular(8),
-        )),
+      controller: searchController,
+
+    onFieldSubmitted:  onSubmited,
+      decoration: InputDecoration(
+          hintText: 'Search here....',
+          labelStyle: TextStyle(color: Colors.black),
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.black),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide:
+            const BorderSide(color: Colors.indigo),
+            borderRadius: BorderRadius.circular(8),
+          )),
+
   );
 }

@@ -5,6 +5,7 @@ import 'package:new_app/screens/home_page_screen.dart';
 import 'package:new_app/screens/favourite_screen/favourite_screen.dart';
 import 'package:new_app/screens/register_screen.dart';
 import 'package:new_app/screens/personal_screen.dart';
+import 'package:new_app/screens/search_screen.dart';
 import 'package:new_app/shared_perference/cash/cash_helper.dart';
 
 import '../components/constants.dart';
@@ -28,6 +29,7 @@ class _BottomNavgitionBarScreenState extends State<BottomNavgitionBarScreen> {
     HomePageScreen(),
     ApplicationScreen(),
     PersonalScreen(),
+
   ];
 
   @override
@@ -174,6 +176,10 @@ class _BottomNavgitionBarScreenState extends State<BottomNavgitionBarScreen> {
             icon: Icon(Icons.person),
             label: 'personal',
           ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.search),
+          //   label: 'Search',
+          // ),
         ],
         currentIndex: selectedIndex,
         selectedItemColor: Colors.teal[800],
